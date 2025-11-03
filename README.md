@@ -31,12 +31,12 @@ This project builds upon the previous **Ultrasonic Mapping System**, where the e
 - Required Python Libraries:
   ```bash
   pip install numpy matplotlib pyserial
-⚙️ System Architecture
+## ⚙️ System Architecture
 Module	Function
 Arduino (sketch_nov03b.ino)	Receives serial commands (ROTATE x, MOVE y) and controls the robot’s motors to perform movement and rotation.
 Python (joshua.py)	Loads a pre-mapped occupancy grid (lab8_map.csv), performs A* pathfinding from START to GOAL, and sends step-by-step commands to the Arduino.
 
-🔌 Circuit Connections
+##🔌 Circuit Connections
 🧠 Arduino Motor Driver Connections
 Component	Arduino Pin	Description
 L298N IN1	D8	Motor control pin 1
@@ -49,11 +49,11 @@ GND	Common Ground	Shared ground with Arduino
 
 ⚠️ Note: Connect all GNDs (Arduino, motor driver, and battery) together for stable control.
 
-🌐 Raspberry Pi to Arduino Connection
+## 🌐 Raspberry Pi to Arduino Connection
 Raspberry Pi	Arduino
 USB Port	USB Port (for serial communication)
 
-🚀 How It Works
+## 🚀 How It Works
 1️⃣ Map Loading
 The Python script loads the occupancy grid file lab8_map.csv generated from the ultrasonic mapping phase.
 
@@ -84,8 +84,8 @@ Moves forward by the specified cell distance (e.g., 20 cm).
 
 After completing the path, the robot stops.
 
-🧠 Code Description
-joshua.py
+## 🧠 Code Description
+nav_script.py
 Loads map from lab8_map.csv.
 
 Uses A* algorithm to find the optimal path:
@@ -98,7 +98,7 @@ Sends movement commands to Arduino via serial (/dev/ttyACM0).
 
 Visualizes the path over the map using Matplotlib.
 
-Key Features
+## Key Features
 
 Heuristic: Euclidean distance
 
@@ -108,7 +108,7 @@ Adjustable grid size and movement delay
 
 Automatic path visualization
 
-sketch_nov03b.ino
+nav_sketch.ino
 Receives commands from Python through Serial communication.
 
 Parses incoming commands (ROTATE or MOVE).
@@ -167,7 +167,8 @@ ROTATE -45 → MOVE 20
 ...
 📹 Demonstration Video
 🎥 YouTube Demo: [video-link](https://youtu.be/hXhvoogdFyQ)
-👨‍💻 Authors
+
+## 👨‍💻 Authors
 Developed by:
 
 🧑‍💻 Anshul Dewangan
